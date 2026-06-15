@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Bradwell Band Booster Club</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --royal: #1a3a8f;
+      --royal-dark: #102570;
+      --gold: #f5c518;
+      --gold-dark: #d4a800;
+      --white: #ffffff;
+      --off-white: #f8f7f2;
+      --text: #1a1a1a;
+      --muted: #555;
+    }
+    body { font-family: 'Open Sans', sans-serif; color: var(--text); background: var(--off-white); }
+
+    nav {
+      background: var(--royal-dark);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 64px; position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo-mark {
+      width: 40px; height: 40px; background: var(--gold); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1rem; color: var(--royal-dark);
+    }
+    .nav-logo-text { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 1rem; color: var(--white); line-height: 1.2; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+    .page-header {
+      background: var(--royal); color: var(--white);
+      padding: 3rem 2rem 2.5rem; text-align: center; position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 50px;
+      background: var(--off-white); clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    .page-header .eyebrow { font-family: 'Oswald', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .page-header h1 { font-family: 'Oswald', sans-serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; }
+
+    .mission { max-width: 760px; margin: 2.5rem auto; padding: 0 2rem; text-align: center; }
+    .section-label { font-family: 'Oswald', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--royal); margin-bottom: 0.5rem; }
+    .section-title { font-family: 'Oswald', sans-serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; color: var(--royal-dark); margin-bottom: 0.75rem; }
+    .section-title span { color: var(--gold-dark); }
+    .divider { width: 48px; height: 4px; background: var(--gold); margin: 0 auto 1.25rem; border-radius: 2px; }
+    .mission p { color: var(--muted); line-height: 1.8; font-size: 1rem; }
+
+    .board-section { background: var(--royal-dark); padding: 3rem 2rem; }
+    .board-inner { max-width: 1100px; margin: 0 auto; }
+    .board-section .section-label { color: var(--gold); text-align: center; }
+    .board-section .section-title { color: var(--white); text-align: center; }
+    .board-section .divider { margin: 0 auto 2rem; }
+
+    .board-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .board-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px; overflow: hidden; text-align: center;
+      transition: transform 0.2s;
+    }
+    .board-card:hover { transform: translateY(-3px); }
+
+    .board-photo {
+      width: 100%; aspect-ratio: 1 / 1;
+      object-fit: cover; object-position: center top; display: block;
+    }
+    .board-photo-placeholder {
+      width: 100%; aspect-ratio: 1 / 1;
+      background: rgba(245,197,24,0.12);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .board-photo-placeholder svg { width: 50px; height: 50px; opacity: 0.4; }
+
+    .board-info { padding: 0.9rem 0.75rem; }
+    .board-name { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 0.2rem; }
+    .board-position { font-size: 0.72rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.6rem; font-weight: 600; line-height: 1.3; }
+    .board-email { font-size: 0.72rem; color: rgba(255,255,255,0.5); text-decoration: none; word-break: break-all; transition: color 0.2s; display: block; }
+    .board-email:hover { color: var(--gold); }
+
+    .contact-strip { background: var(--gold); padding: 2.5rem 2rem; text-align: center; }
+    .contact-strip .section-title { color: var(--royal-dark); margin-bottom: 0.5rem; }
+    .contact-strip p { color: var(--royal-dark); margin-bottom: 1rem; }
+    .contact-strip a { font-family: 'Oswald', sans-serif; font-size: 1rem; color: var(--royal-dark); text-decoration: none; border-bottom: 2px solid var(--royal); padding-bottom: 2px; }
+
+    footer { background: var(--royal-dark); color: rgba(255,255,255,0.6); text-align: center; padding: 1.25rem 2rem; font-size: 0.8rem; }
+    footer strong { color: var(--gold); }
+
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      .board-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">BI</div>
+      <div class="nav-logo-text">Bradwell Band<br>Booster Club</div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="spiritwear.html">Spirit Wear</a></li>
+      <li><a href="donate.html">Donate</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <div class="eyebrow">Bradwell Institute Band</div>
+    <h1>About the Booster Club</h1>
+  </div>
+
+  <div class="mission">
+    <div class="section-label">Who We Are</div>
+    <h2 class="section-title">Supporting Every <span>Student. Every Note.</span></h2>
+    <div class="divider"></div>
+    <p>The Bradwell Band Booster Club is a parent and community volunteer organization dedicated to supporting the full Bradwell Institute Band program — including our Marching Band, Concert Band, Symphonic Band, and Jazz Ensemble. We fund equipment, travel, uniforms, competitions, and enrichment opportunities that make a great band program possible.</p>
+  </div>
+
+  <div class="board-section">
+    <div class="board-inner">
+      <div class="section-label">Meet the Team</div>
+      <h2 class="section-title">2025&ndash;2026 Board of Directors</h2>
+      <div class="divider"></div>
+
+      <div class="board-grid">
+
+        <!-- George -->
+        <div class="board-card">
+          <div class="board-photo-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="8" r="4" fill="#f5c518"/>
+              <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#f5c518" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="board-info">
+            <div class="board-name">George</div>
+            <div class="board-position">President</div>
+            <a href="mailto:president@bradwellinstituteband.org" class="board-email">president@bradwellinstituteband.org</a>
+          </div>
+        </div>
+
+        <!-- Danielle -->
+        <div class="board-card">
+          <img src="Danielle_headshot.jpg" alt="Danielle" class="board-photo" />
+          <div class="board-info">
+            <div class="board-name">Danielle</div>
+            <div class="board-position">Vice President</div>
+            <a href="mailto:vicepresident@bradwellinstituteband.org" class="board-email">vicepresident@bradwellinstituteband.org</a>
+          </div>
+        </div>
+
+        <!-- Mariam -->
+        <div class="board-card">
+          <img src="Mariam_headshot.jpg" alt="Mariam" class="board-photo" />
+          <div class="board-info">
+            <div class="board-name">Mariam</div>
+            <div class="board-position">Treasurer</div>
+            <a href="mailto:treasurer@bradwellinstituteband.org" class="board-email">treasurer@bradwellinstituteband.org</a>
+          </div>
+        </div>
+
+        <!-- Denissa -->
+        <div class="board-card">
+          <div class="board-photo-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="8" r="4" fill="#f5c518"/>
+              <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#f5c518" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="board-info">
+            <div class="board-name">Denissa</div>
+            <div class="board-position">Secretary</div>
+            <a href="mailto:secretary@bradwellinstituteband.org" class="board-email">secretary@bradwellinstituteband.org</a>
+          </div>
+        </div>
+
+        <!-- Denisia -->
+        <div class="board-card">
+          <div class="board-photo-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="8" r="4" fill="#f5c518"/>
+              <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#f5c518" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="board-info">
+            <div class="board-name">Denisia</div>
+            <div class="board-position">Communications &amp; Social Media</div>
+            <a href="mailto:communications@bradwellinstituteband.org" class="board-email">communications@bradwellinstituteband.org</a>
+          </div>
+        </div>
+
+        <!-- Ashley -->
+        <div class="board-card">
+          <img src="Ashley_Headshot.jpg" alt="Ashley" class="board-photo" />
+          <div class="board-info">
+            <div class="board-name">Ashley</div>
+            <div class="board-position">Concessions Manager</div>
+            <a href="mailto:concessions@bradwellinstituteband.org" class="board-email">concessions@bradwellinstituteband.org</a>
+          </div>
+        </div>
+
+        <!-- Brittany -->
+        <div class="board-card">
+          <div class="board-photo-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="8" r="4" fill="#f5c518"/>
+              <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#f5c518" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="board-info">
+            <div class="board-name">Brittany</div>
+            <div class="board-position">Event Coordinator</div>
+            <a href="mailto:events@bradwellinstituteband.org" class="board-email">events@bradwellinstituteband.org</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-strip">
+    <h2 class="section-title">Have a Question?</h2>
+    <p>Reach out to the Booster Club directly.</p>
+    <a href="mailto:bibandboosters@bradwellinstituteband.org">bibandboosters@bradwellinstituteband.org</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 <strong>Bradwell Band Booster Club</strong> &nbsp;&middot;&nbsp; Supporting the Bradwell Institute Band &nbsp;&middot;&nbsp; Hinesville, GA</p>
+  </footer>
+
+</body>
+</html>
