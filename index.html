@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bradwell Band Booster Club</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --royal: #1a3a8f;
+      --royal-dark: #102570;
+      --gold: #f5c518;
+      --gold-dark: #d4a800;
+      --white: #ffffff;
+      --off-white: #f8f7f2;
+      --text: #1a1a1a;
+      --muted: #555;
+    }
+
+    body { font-family: 'Open Sans', sans-serif; color: var(--text); background: var(--off-white); }
+
+    /* NAV */
+    nav {
+      background: var(--royal-dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 64px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo-mark {
+      width: 40px; height: 40px; background: var(--gold); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1rem;
+      color: var(--royal-dark); flex-shrink: 0;
+    }
+    .nav-logo-text { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 1rem; color: var(--white); letter-spacing: 0.03em; line-height: 1.2; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      background: var(--royal);
+      color: var(--white);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      height: 60px;
+      background: var(--off-white);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    .hero-logo-placeholder {
+      width: 100px; height: 100px;
+      background: var(--gold);
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1.5rem;
+      color: var(--royal-dark);
+      border: 4px solid rgba(255,255,255,0.3);
+    }
+    .hero-eyebrow { font-family: 'Oswald', sans-serif; font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+    .hero h1 { font-family: 'Oswald', sans-serif; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.1; margin-bottom: 0.5rem; }
+    .hero h1 span { color: var(--gold); }
+    .hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.75); margin-bottom: 2rem; }
+    .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 0.75rem 1.75rem; border-radius: 4px;
+      font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600;
+      letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s; cursor: pointer; border: none;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+    .btn-gold { background: var(--gold); color: var(--royal-dark); }
+    .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.6); }
+    .btn-outline:hover { border-color: var(--white); }
+
+    /* SECTIONS */
+    section { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto; }
+    .section-label { font-family: 'Oswald', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--royal); margin-bottom: 0.5rem; }
+    .section-title { font-family: 'Oswald', sans-serif; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; color: var(--royal-dark); margin-bottom: 1rem; }
+    .section-title span { color: var(--gold-dark); }
+    .divider { width: 48px; height: 4px; background: var(--gold); margin-bottom: 2rem; border-radius: 2px; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .about-text p { color: var(--muted); line-height: 1.8; margin-bottom: 1rem; font-size: 1rem; }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .stat-card { background: var(--royal); color: var(--white); padding: 1.5rem; border-radius: 6px; text-align: center; }
+    .stat-card .stat-num { font-family: 'Oswald', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--gold); display: block; }
+    .stat-card .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.75); text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* EVENTS */
+    .events-section { background: var(--royal-dark); max-width: 100%; padding: 4rem 2rem; }
+    .events-inner { max-width: 1100px; margin: 0 auto; }
+    .events-section .section-label { color: var(--gold); }
+    .events-section .section-title { color: var(--white); }
+    .events-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
+    .event-card {
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px; padding: 1.5rem; display: flex; gap: 1.25rem; align-items: flex-start;
+    }
+    .event-date { background: var(--gold); color: var(--royal-dark); border-radius: 4px; padding: 0.5rem 0.75rem; text-align: center; flex-shrink: 0; font-family: 'Oswald', sans-serif; }
+    .event-date .month { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; display: block; font-weight: 600; }
+    .event-date .day { font-size: 1.75rem; font-weight: 700; line-height: 1; display: block; }
+    .event-info h3 { font-family: 'Oswald', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--white); margin-bottom: 0.25rem; }
+    .event-info p { font-size: 0.825rem; color: rgba(255,255,255,0.6); line-height: 1.5; }
+    .events-cta { text-align: center; margin-top: 2.5rem; }
+
+    /* SPIRIT WEAR */
+    .spirit-section { background: var(--gold); max-width: 100%; padding: 4rem 2rem; text-align: center; }
+    .spirit-inner { max-width: 700px; margin: 0 auto; }
+    .spirit-section .section-label { color: var(--royal); }
+    .spirit-section .section-title { color: var(--royal-dark); }
+    .spirit-section .divider { background: var(--royal); margin: 0 auto 2rem; }
+    .spirit-section p { color: var(--royal-dark); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem; }
+    .under-construction {
+      display: inline-block; background: var(--royal); color: var(--white);
+      font-family: 'Oswald', sans-serif; font-size: 1rem; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 0.75rem 1.5rem; border-radius: 4px;
+    }
+
+    /* DONATE */
+    .donate-section { text-align: center; }
+    .donate-section .section-label, .donate-section .section-title { text-align: center; }
+    .donate-section .divider { margin: 0 auto 2rem; }
+    .donate-section p { color: var(--muted); max-width: 560px; margin: 0 auto 2rem; line-height: 1.8; }
+
+    /* CONTACT */
+    .contact-section { background: var(--off-white); border-top: 3px solid var(--gold); max-width: 100%; padding: 4rem 2rem; }
+    .contact-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+    .contact-inner .section-title { color: var(--royal-dark); }
+    .contact-inner .divider { margin: 0 auto 2rem; }
+    .contact-inner p { color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; }
+    .contact-email { display: inline-block; font-family: 'Oswald', sans-serif; font-size: 1.1rem; color: var(--royal); text-decoration: none; border-bottom: 2px solid var(--gold); padding-bottom: 2px; transition: color 0.2s; }
+    .contact-email:hover { color: var(--royal-dark); }
+
+    /* FOOTER */
+    footer { background: var(--royal-dark); color: rgba(255,255,255,0.6); text-align: center; padding: 1.5rem 2rem; font-size: 0.8rem; }
+    footer strong { color: var(--gold); }
+
+    @media (max-width: 720px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">BI</div>
+      <div class="nav-logo-text">Bradwell Band<br>Booster Club</div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="spiritwear.html">Spirit Wear</a></li>
+      <li><a href="donate.html">Donate</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-logo-placeholder">BIBB</div>
+    <div class="hero-eyebrow">Bradwell Institute · Hinesville, GA</div>
+    <h1>More Than a Band.<br><span>A Community.</span></h1>
+    <p class="hero-sub">Supporting the Bradwell Institute Marching Band, Concert Band, Symphonic Band, and Jazz Ensemble.</p>
+    <div class="btn-group">
+      <a href="donate.html" class="btn btn-gold">Support Our Students</a>
+      <a href="events.html" class="btn btn-outline">Upcoming Events</a>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label">Who We Are</div>
+        <h2 class="section-title">The Bradwell Band <span>Booster Club</span></h2>
+        <div class="divider"></div>
+        <p>The Bradwell Band Booster Club is a parent and community volunteer organization dedicated to supporting the full Bradwell Institute Band program — from the marching field to the concert hall.</p>
+        <p>We fund equipment, travel, uniforms, and enrichment opportunities that make a great band program possible. Our members show up at every performance, fundraiser, and community event — because we believe music education shapes students for life, not just for the season.</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Volunteer Run</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">100+</span>
+          <span class="stat-label">Students</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">12+</span>
+          <span class="stat-label">Events Per Year</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">1</span>
+          <span class="stat-label">Band, 1 Sound</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <div class="events-section" id="events">
+    <div class="events-inner">
+      <div class="section-label">Mark Your Calendar</div>
+      <h2 class="section-title">Upcoming Events</h2>
+      <div class="events-grid">
+
+        <div class="event-card">
+          <div class="event-date"><span class="month">Jun</span><span class="day">22</span></div>
+          <div class="event-info">
+            <h3>Band Camp Begins</h3>
+            <p>Percussion &amp; Auxiliary</p>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date"><span class="month">Jun</span><span class="day">27</span></div>
+          <div class="event-info">
+            <h3>Windsuit Ordering Window 1 Ends</h3>
+            <p>Last day to place your order in Window 1.</p>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date"><span class="month">Jun</span><span class="day">30</span></div>
+          <div class="event-info">
+            <h3>Mandatory Band Meeting</h3>
+            <p>Virtual meeting — attendance required.</p>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date"><span class="month">Jul</span><span class="day">06</span></div>
+          <div class="event-info">
+            <h3>Band Camp Begins</h3>
+            <p>Leadership</p>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date"><span class="month">Jul</span><span class="day">13</span></div>
+          <div class="event-info">
+            <h3>Band Camp Begins</h3>
+            <p>All Marchers</p>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date"><span class="month">Jul</span><span class="day">14</span></div>
+          <div class="event-info">
+            <h3>Windsuit Ordering Window 2 Ends</h3>
+            <p>Last day to place your order in Window 2.</p>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date"><span class="month">Aug</span><span class="day">14</span></div>
+          <div class="event-info">
+            <h3>Preseason Game vs LCHS</h3>
+            <p>At Olvey Field.</p>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date"><span class="month">Aug</span><span class="day">21</span></div>
+          <div class="event-info">
+            <h3>First Home Game Performance</h3>
+            <p>Come cheer on the Bradwell Tigers and watch the band take the field at halftime.</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="events-cta">
+        <a href="events.html" class="btn btn-gold">View Full Calendar</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPIRIT WEAR -->
+  <div class="spirit-section" id="spirit">
+    <div class="spirit-inner">
+      <div class="section-label">Show Your Support</div>
+      <h2 class="section-title">Spirit Wear Store</h2>
+      <div class="divider"></div>
+      <p>Our online spirit wear store features many ways to show your Tiger pride.</p>
+      <span class="under-construction">🚧 Under Construction — Coming Soon!</span>
+    </div>
+  </div>
+
+  <!-- DONATE -->
+  <section id="donate" class="donate-section">
+    <div class="section-label">Make a Difference</div>
+    <h2 class="section-title">Support the <span>Bradwell Band</span></h2>
+    <div class="divider"></div>
+    <p>Every contribution directly supports our students — funding competitions, hardship funds, instruments, uniforms, travel, and performance opportunities that wouldn't be possible without community support.</p>
+    <a href="donate.html" class="btn btn-gold" style="font-size:1rem;">Donate Now — Link Coming Soon</a>
+  </section>
+
+  <!-- CONTACT -->
+  <div class="contact-section" id="contact">
+    <div class="contact-inner">
+      <div class="section-label">Get in Touch</div>
+      <h2 class="section-title">Contact the Booster Club</h2>
+      <div class="divider"></div>
+      <p>Questions about membership, volunteering, events, or sponsorship? We'd love to hear from you.</p>
+      <a href="mailto:bibandboosters@bradwellinstituteband.org" class="contact-email">bibandboosters@bradwellinstituteband.org</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 <strong>Bradwell Band Booster Club</strong> &nbsp;&middot;&nbsp; Supporting the Bradwell Institute Band &nbsp;&middot;&nbsp; Hinesville, GA</p>
+  </footer>
+
+</body>
+</html>
