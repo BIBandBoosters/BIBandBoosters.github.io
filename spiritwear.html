@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spirit Wear | Bradwell Band Booster Club</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --royal: #1a3a8f; --royal-dark: #102570; --gold: #f5c518; --white: #ffffff; --off-white: #f8f7f2; --muted: #555; }
+    body { font-family: 'Open Sans', sans-serif; background: var(--off-white); }
+    nav { background: var(--royal-dark); display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 64px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo-mark { width: 40px; height: 40px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1rem; color: var(--royal-dark); }
+    .nav-logo-text { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 1rem; color: var(--white); line-height: 1.2; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .page-header { background: var(--royal); color: var(--white); padding: 3rem 2rem 2.5rem; text-align: center; position: relative; overflow: hidden; }
+    .page-header::before { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 50px; background: var(--off-white); clip-path: ellipse(55% 100% at 50% 100%); }
+    .page-header .eyebrow { font-family: 'Oswald', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .page-header h1 { font-family: 'Oswald', sans-serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; }
+    .content { max-width: 1000px; margin: 3rem auto; padding: 0 2rem; text-align: center; }
+    .section-label { font-family: 'Oswald', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--royal); margin-bottom: 0.5rem; }
+    .section-title { font-family: 'Oswald', sans-serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; color: var(--royal-dark); margin-bottom: 0.75rem; }
+    .divider { width: 48px; height: 4px; background: var(--gold); margin: 0 auto 1.5rem; border-radius: 2px; }
+    .content > p { color: var(--muted); line-height: 1.8; margin-bottom: 2rem; font-size: 1.05rem; }
+    .badge { display: inline-block; background: var(--royal); color: var(--white); font-family: 'Oswald', sans-serif; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.85rem 2rem; border-radius: 4px; margin-bottom: 3rem; }
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .product-card { background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.07); border: 1px solid rgba(0,0,0,0.08); text-align: center; }
+    .product-image {
+      width: 100%; aspect-ratio: 1/1;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Oswald', sans-serif; font-size: 0.85rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: rgba(255,255,255,0.5);
+    }
+    .product-image.black { background: #1a1a1a; }
+    .product-image.gold { background: var(--gold); color: rgba(0,0,0,0.3); }
+    .product-image.blue { background: var(--royal); }
+    .product-image.visor { background: #2d2d2d; }
+    .product-info { padding: 1rem; }
+    .product-name { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; color: var(--royal-dark); margin-bottom: 0.25rem; }
+    .product-status { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    footer { background: var(--royal-dark); color: rgba(255,255,255,0.6); text-align: center; padding: 1.25rem 2rem; font-size: 0.8rem; margin-top: 4rem; }
+    footer strong { color: var(--gold); }
+    @media (max-width: 720px) { .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">BI</div>
+      <div class="nav-logo-text">Bradwell Band<br>Booster Club</div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="spiritwear.html" class="active">Spirit Wear</a></li>
+      <li><a href="donate.html">Donate</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="page-header">
+    <div class="eyebrow">Bradwell Institute Band</div>
+    <h1>Spirit Wear Store</h1>
+  </div>
+  <div class="content">
+    <div class="section-label">Show Your Tiger Pride</div>
+    <h2 class="section-title">Spirit Wear <span style="color:var(--gold)">Coming Soon</span></h2>
+    <div class="divider"></div>
+    <p>Our online spirit wear store features many ways to show your Tiger pride. Check back soon for full ordering details.</p>
+    <div class="badge">🚧 Under Construction — Coming Soon!</div>
+
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-image black">Photo Coming Soon</div>
+        <div class="product-info">
+          <div class="product-name">Black Tee</div>
+          <div class="product-status">Coming Soon</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-image gold">Photo Coming Soon</div>
+        <div class="product-info">
+          <div class="product-name">Gold Tee</div>
+          <div class="product-status">Coming Soon</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-image blue">Photo Coming Soon</div>
+        <div class="product-info">
+          <div class="product-name">Blue Tee</div>
+          <div class="product-status">Coming Soon</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-image visor">Photo Coming Soon</div>
+        <div class="product-info">
+          <div class="product-name">Visor</div>
+          <div class="product-status">Coming Soon</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2026 <strong>Bradwell Band Booster Club</strong> &nbsp;&middot;&nbsp; Supporting the Bradwell Institute Band &nbsp;&middot;&nbsp; Hinesville, GA</p>
+  </footer>
+</body>
+</html>
