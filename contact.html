@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Bradwell Band Booster Club</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --royal: #1a3a8f; --royal-dark: #102570; --gold: #f5c518; --white: #ffffff; --off-white: #f8f7f2; --muted: #555; }
+    body { font-family: 'Open Sans', sans-serif; background: var(--off-white); }
+    nav { background: var(--royal-dark); display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 64px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo-mark { width: 40px; height: 40px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1rem; color: var(--royal-dark); }
+    .nav-logo-text { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 1rem; color: var(--white); line-height: 1.2; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .page-header { background: var(--royal); color: var(--white); padding: 3rem 2rem 2.5rem; text-align: center; position: relative; overflow: hidden; }
+    .page-header::before { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 50px; background: var(--off-white); clip-path: ellipse(55% 100% at 50% 100%); }
+    .page-header .eyebrow { font-family: 'Oswald', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .page-header h1 { font-family: 'Oswald', sans-serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; }
+    .content { max-width: 700px; margin: 4rem auto; padding: 0 2rem; text-align: center; }
+    .section-label { font-family: 'Oswald', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--royal); margin-bottom: 0.5rem; }
+    .section-title { font-family: 'Oswald', sans-serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; color: var(--royal-dark); margin-bottom: 0.75rem; }
+    .divider { width: 48px; height: 4px; background: var(--gold); margin: 0 auto 1.5rem; border-radius: 2px; }
+    .content p { color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.05rem; }
+    .contact-email { display: inline-block; font-family: 'Oswald', sans-serif; font-size: 1.15rem; color: var(--royal); text-decoration: none; border-bottom: 2px solid var(--gold); padding-bottom: 3px; transition: color 0.2s; }
+    .contact-email:hover { color: var(--royal-dark); }
+    .board-list { margin: 3rem 0; text-align: left; background: var(--white); border-radius: 8px; border: 1px solid rgba(0,0,0,0.08); overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .board-list-item { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; border-bottom: 1px solid rgba(0,0,0,0.06); flex-wrap: wrap; gap: 0.5rem; }
+    .board-list-item:last-child { border-bottom: none; }
+    .board-list-item:nth-child(even) { background: var(--off-white); }
+    .board-role { font-family: 'Oswald', sans-serif; font-size: 0.85rem; color: var(--royal); text-transform: uppercase; letter-spacing: 0.06em; }
+    .board-name-text { font-weight: 600; color: var(--text); font-size: 0.95rem; }
+    .board-contact-email { font-size: 0.8rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .board-contact-email:hover { color: var(--royal); }
+    footer { background: var(--royal-dark); color: rgba(255,255,255,0.6); text-align: center; padding: 1.25rem 2rem; font-size: 0.8rem; margin-top: 4rem; }
+    footer strong { color: var(--gold); }
+    @media (max-width: 720px) { .nav-links { display: none; } .board-list-item { flex-direction: column; align-items: flex-start; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">BI</div>
+      <div class="nav-logo-text">Bradwell Band<br>Booster Club</div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="spiritwear.html">Spirit Wear</a></li>
+      <li><a href="donate.html">Donate</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="page-header">
+    <div class="eyebrow">Bradwell Institute Band</div>
+    <h1>Contact Us</h1>
+  </div>
+  <div class="content">
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">We'd Love to <span style="color:var(--gold)">Hear From You</span></h2>
+    <div class="divider"></div>
+    <p>Questions about membership, volunteering, events, or sponsorship? Reach out to us directly.</p>
+    <a href="mailto:bibandboosters@bradwellinstituteband.org" class="contact-email">bibandboosters@bradwellinstituteband.org</a>
+
+    <div class="board-list" style="margin-top: 3rem;">
+      <div class="board-list-item">
+        <div><div class="board-role">President</div><div class="board-name-text">George</div></div>
+        <a href="mailto:president@bradwellinstituteband.org" class="board-contact-email">president@bradwellinstituteband.org</a>
+      </div>
+      <div class="board-list-item">
+        <div><div class="board-role">Vice President</div><div class="board-name-text">Danielle</div></div>
+        <a href="mailto:vicepresident@bradwellinstituteband.org" class="board-contact-email">vicepresident@bradwellinstituteband.org</a>
+      </div>
+      <div class="board-list-item">
+        <div><div class="board-role">Treasurer</div><div class="board-name-text">Mariam</div></div>
+        <a href="mailto:treasurer@bradwellinstituteband.org" class="board-contact-email">treasurer@bradwellinstituteband.org</a>
+      </div>
+      <div class="board-list-item">
+        <div><div class="board-role">Secretary</div><div class="board-name-text">Denissa</div></div>
+        <a href="mailto:secretary@bradwellinstituteband.org" class="board-contact-email">secretary@bradwellinstituteband.org</a>
+      </div>
+      <div class="board-list-item">
+        <div><div class="board-role">Communications &amp; Social Media</div><div class="board-name-text">Denisia</div></div>
+        <a href="mailto:communications@bradwellinstituteband.org" class="board-contact-email">communications@bradwellinstituteband.org</a>
+      </div>
+      <div class="board-list-item">
+        <div><div class="board-role">Concessions Manager</div><div class="board-name-text">Ashley</div></div>
+        <a href="mailto:concessions@bradwellinstituteband.org" class="board-contact-email">concessions@bradwellinstituteband.org</a>
+      </div>
+      <div class="board-list-item">
+        <div><div class="board-role">Event Coordinator</div><div class="board-name-text">Brittany</div></div>
+        <a href="mailto:events@bradwellinstituteband.org" class="board-contact-email">events@bradwellinstituteband.org</a>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2026 <strong>Bradwell Band Booster Club</strong> &nbsp;&middot;&nbsp; Supporting the Bradwell Institute Band &nbsp;&middot;&nbsp; Hinesville, GA</p>
+  </footer>
+</body>
+</html>
