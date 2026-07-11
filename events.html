@@ -31,7 +31,55 @@
     .calendar-wrapper iframe { display: block; width: 100%; height: 600px; }
     footer { background: var(--royal-dark); color: rgba(255,255,255,0.6); text-align: center; padding: 1.25rem 2rem; font-size: 0.8rem; margin-top: 4rem; }
     footer strong { color: var(--gold); }
-    @media (max-width: 720px) { .nav-links { display: none; } .calendar-wrapper iframe { height: 400px; } }
+
+
+    /* HAMBURGER NAV */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: var(--royal-dark);
+      padding: 1rem 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover, .mobile-menu a.active { color: var(--gold); }
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .board-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    }
   </style>
 </head>
 <body>
@@ -48,7 +96,18 @@
       <li><a href="donate.html">Donate</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="events.html">Events</a>
+    <a href="spiritwear.html">Spirit Wear</a>
+    <a href="donate.html">Donate</a>
+    <a href="contact.html">Contact</a>
+  </div>
   <div class="page-header">
     <div class="eyebrow">Bradwell Institute Band</div>
     <h1>Events &amp; Calendar</h1>
@@ -64,5 +123,13 @@
   <footer>
     <p>&copy; 2026 <strong>Bradwell Band Booster Club</strong> &nbsp;&middot;&nbsp; Supporting the Bradwell Institute Band &nbsp;&middot;&nbsp; Hinesville, GA</p>
   </footer>
+  <script>
+    const btn = document.getElementById('hamburger');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('open');
+      menu.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
