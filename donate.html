@@ -7,86 +7,57 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --royal: #1a3a8f; --royal-dark: #102570; --gold: #f5c518; --white: #ffffff; --off-white: #f8f7f2; --muted: #555; }
+    :root { --royal: #1a3a8f; --royal-dark: #102570; --gold: #f5c518; --gold-dark: #d4a800; --white: #ffffff; --off-white: #f8f7f2; --muted: #555; }
     body { font-family: 'Open Sans', sans-serif; background: var(--off-white); }
     nav { background: var(--royal-dark); display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 64px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
     .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
-    .nav-logo-mark { width: 40px; height: 40px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1rem; color: var(--royal-dark); }
+    .nav-logo img { height: 44px; width: auto; display: block; }
     .nav-logo-text { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 1rem; color: var(--white); line-height: 1.2; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; flex-direction: column; background: var(--royal-dark); padding: 1rem 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 1rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); transition: color 0.2s; }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover, .mobile-menu a.active { color: var(--gold); }
+    @media (max-width: 720px) { .nav-links { display: none; } .hamburger { display: flex; } }
+
     .page-header { background: var(--royal); color: var(--white); padding: 3rem 2rem 2.5rem; text-align: center; position: relative; overflow: hidden; }
     .page-header::before { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 50px; background: var(--off-white); clip-path: ellipse(55% 100% at 50% 100%); }
     .page-header .eyebrow { font-family: 'Oswald', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
     .page-header h1 { font-family: 'Oswald', sans-serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; }
-    .content { max-width: 700px; margin: 4rem auto; padding: 0 2rem; text-align: center; }
+
+    .content { max-width: 800px; margin: 3rem auto; padding: 0 2rem; text-align: center; }
     .section-label { font-family: 'Oswald', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--royal); margin-bottom: 0.5rem; }
     .section-title { font-family: 'Oswald', sans-serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; color: var(--royal-dark); margin-bottom: 0.75rem; }
     .divider { width: 48px; height: 4px; background: var(--gold); margin: 0 auto 1.5rem; border-radius: 2px; }
     .content p { color: var(--muted); line-height: 1.8; margin-bottom: 2rem; font-size: 1.05rem; }
-    .qr-box { background: var(--white); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border: 2px solid var(--royal); display: inline-block; padding: 2rem; margin-bottom: 1.5rem; }
-    .qr-box img { width: 220px; height: 220px; display: block; }
-    .qr-label { font-family: 'Oswald', sans-serif; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 1rem; }
+
+    .zeffy-wrap { margin: 0 auto 3rem; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border: 2px solid var(--royal); }
+
+    .qr-section { background: var(--royal-dark); padding: 2.5rem 2rem; text-align: center; }
+    .qr-section p { color: rgba(255,255,255,0.75); margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.7; }
+    .qr-section .qr-label { font-family: 'Oswald', sans-serif; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .qr-box { background: var(--white); border-radius: 12px; display: inline-block; padding: 1.25rem; margin-bottom: 1.5rem; }
+    .qr-box img { width: 180px; height: 180px; display: block; }
     .btn { display: inline-block; padding: 0.85rem 2rem; border-radius: 4px; font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; background: var(--gold); color: var(--royal-dark); transition: transform 0.15s; }
     .btn:hover { transform: translateY(-2px); }
-    footer { background: var(--royal-dark); color: rgba(255,255,255,0.6); text-align: center; padding: 1.25rem 2rem; font-size: 0.8rem; margin-top: 4rem; }
+
+    footer { background: var(--royal-dark); color: rgba(255,255,255,0.6); text-align: center; padding: 1.25rem 2rem; font-size: 0.8rem; }
     footer strong { color: var(--gold); }
-
-
-    /* HAMBURGER NAV */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
-      background: none;
-      border: none;
-    }
-    .hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--white);
-      border-radius: 2px;
-      transition: all 0.3s;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      background: var(--royal-dark);
-      padding: 1rem 2rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      color: rgba(255,255,255,0.85);
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      padding: 0.75rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      transition: color 0.2s;
-    }
-    .mobile-menu a:last-child { border-bottom: none; }
-    .mobile-menu a:hover, .mobile-menu a.active { color: var(--gold); }
-    @media (max-width: 720px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .board-grid { grid-template-columns: repeat(2, 1fr) !important; }
-    }
   </style>
 </head>
 <body>
+
   <nav>
     <a href="index.html" class="nav-logo">
-      <div class="nav-logo-mark">BI</div>
+      <img src="logo.png" alt="Bradwell Band Booster Club" />
       <div class="nav-logo-text">Bradwell Band<br>Booster Club</div>
     </a>
     <ul class="nav-links">
@@ -97,7 +68,7 @@
       <li><a href="donate.html" class="active">Donate</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
@@ -106,28 +77,54 @@
     <a href="about.html">About</a>
     <a href="events.html">Events</a>
     <a href="spiritwear.html">Spirit Wear</a>
-    <a href="donate.html">Donate</a>
+    <a href="donate.html" class="active">Donate</a>
     <a href="contact.html">Contact</a>
   </div>
+
   <div class="page-header">
     <div class="eyebrow">Bradwell Institute Band</div>
     <h1>Support Our Students</h1>
   </div>
+
   <div class="content">
     <div class="section-label">Make a Difference</div>
-    <h2 class="section-title">Your Gift <span style="color:var(--gold)">Matters</span></h2>
+    <h2 class="section-title">Your Gift <span style="color:var(--gold-dark)">Matters</span></h2>
     <div class="divider"></div>
     <p>Every contribution directly supports our students — funding competitions, hardship funds, instruments, uniforms, travel, and performance opportunities that wouldn't be possible without community support.</p>
-    <div class="qr-box">
-      <img src="qrcode.png" alt="PayPal QR Code" />
-      <div class="qr-label">Scan to donate via PayPal</div>
+
+    <div class="zeffy-wrap">
+      <div data-zeffy-embed data-form-url="/embed/donation-form/please-donate-to-support-our-amazing-student-musicians"></div>
+      <div data-zeffy-embed-fallback style="display:none;">
+        <div style="position:relative;overflow:hidden;height:450px;width:100%;"><iframe title='Donation form powered by Zeffy' style='position: absolute; border: 0; top:0;left:0;bottom:0;right:0;width:100%;height:100%' data-zeffy-embed-src='https://www.zeffy.com/embed/donation-form/please-donate-to-support-our-amazing-student-musicians' allowpaymentrequest allowTransparency="true"></iframe></div>
+      </div>
+      <script src="https://www.zeffy.com/embed/v2/zeffy-embed.js" onerror="document.querySelectorAll('[data-zeffy-embed-fallback]').forEach(function(el){el.style.display='block';el.querySelectorAll('iframe[data-zeffy-embed-src]').forEach(function(f){f.src=f.getAttribute('data-zeffy-embed-src');});});"></script>
     </div>
-    <br />
+  </div>
+
+  <div style="max-width:800px;margin:0 auto;padding:0 2rem 3rem;text-align:center;">
+    <div class="section-label">Prefer PayPal?</div>
+    <h2 class="section-title" style="margin-bottom:0.75rem;">Donate via <span style="color:var(--gold-dark)">PayPal</span></h2>
+    <div class="divider"></div>
+    <div class="qr-box" style="margin-bottom:1.5rem;">
+      <img src="qrcode.png" alt="PayPal QR Code" style="width:180px;height:180px;display:block;" />
+    </div>
+    <div style="font-family:'Oswald',sans-serif;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;">Scan to donate via PayPal</div>
     <a href="https://www.paypal.com/ncp/payment/PFN3WS22PKYYJ" target="_blank" class="btn">Donate via PayPal</a>
   </div>
+  <div class="qr-section">
+    <div class="qr-label">Prefer to scan?</div>
+    <p>Scan the QR code below to donate directly via Zeffy on your mobile device.</p>
+    <div class="qr-box">
+      <img src="Zeffy_QR_Code.png" alt="Zeffy Donation QR Code" />
+    </div>
+    <br />
+    <a href="https://www.zeffy.com/en-US/donation-form/please-donate-to-support-our-amazing-student-musicians" target="_blank" class="btn">Donate Now</a>
+  </div>
+
   <footer>
     <p>&copy; 2026 <strong>Bradwell Band Booster Club</strong> &nbsp;&middot;&nbsp; Supporting the Bradwell Institute Band &nbsp;&middot;&nbsp; Hinesville, GA</p>
   </footer>
+
   <script>
     const btn = document.getElementById('hamburger');
     const menu = document.getElementById('mobile-menu');
@@ -136,5 +133,6 @@
       menu.classList.toggle('open');
     });
   </script>
+
 </body>
 </html>
