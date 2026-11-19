@@ -1,1 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Christmas Tree Fundraiser | Bradwell Institute Band</title>
+<meta name="description" content="Pre-order a fresh-cut Leyland Cypress from $60. Pickup 11/25 or 11/27 at Bradwell Institute. Every tree helps get our band students to Orlando.">
+<meta property="og:title" content="Christmas Tree Fundraiser | Bradwell Institute Band">
+<meta property="og:description" content="Fresh-cut Leyland Cypress, $12/foot. Pre-order now. Every tree helps get our band students to Orlando.">
+<meta property="og:url" content="https://bradwellinstituteband.org/christmastree/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Roboto+Condensed:wght@400;600;700;800&family=Great+Vibes&family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap">
+<style>
+  :root{
+    --cream:#FDF0D9; --cream-dark:#F6E4C2; --line:#E6D6B5;
+    --green:#0A6E0A; --green-dark:#0D3B0D; --sage:#DDE8D2; --red:#CC1111;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  #order,#pickup{scroll-margin-top:64px}
+  body{margin:0;background:var(--cream);color:var(--green-dark);font-family:'Roboto Condensed',system-ui,sans-serif}
+  a{color:var(--green)} a:hover{color:var(--green-dark)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
 
+  /* ===== Site nav (same as other pages) ===== */
+  :root{--royal:#1a3a8f;--royal-dark:#102570;--gold:#f5c518;--white:#ffffff}
+  nav{background:var(--royal-dark);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:64px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.3);font-family:'Open Sans',sans-serif}
+  .nav-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+  .nav-logo img{height:44px;width:auto;display:block}
+  .nav-logo-text{font-family:'Oswald',sans-serif;font-weight:600;font-size:1rem;color:var(--white);line-height:1.2}
+  .nav-links{display:flex;gap:2rem;list-style:none;margin:0;padding:0}
+  .nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:.875rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;transition:color .2s}
+  .nav-links a:hover,.nav-links a.active{color:var(--gold)}
+  .dropdown{position:relative}
+  .dropdown-menu{display:none;position:absolute;top:100%;right:0;background:var(--royal-dark);min-width:210px;padding:.5rem 0;border-radius:0 0 6px 6px;box-shadow:0 6px 16px rgba(0,0,0,0.3)}
+  .dropdown:hover .dropdown-menu,.dropdown:focus-within .dropdown-menu{display:block}
+  .dropdown-menu a{display:block;padding:.6rem 1.25rem;text-transform:none;letter-spacing:0}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+  .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:all .3s}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-menu{display:none;flex-direction:column;background:var(--royal-dark);padding:1rem 2rem;border-top:1px solid rgba(255,255,255,0.1);font-family:'Open Sans',sans-serif}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:1rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,0.08)}
+  .mobile-menu a:last-child{border-bottom:none}
+  .mobile-menu a:hover,.mobile-menu a.active{color:var(--gold)}
+  @media (max-width:720px){.nav-links{display:none}.hamburger{display:flex}}
+
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 30px;border-radius:14px;font-weight:800;font-size:18px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none}
+  .btn-solid{background:var(--green);color:#fff}
+  .btn-solid:hover{background:var(--green-dark);color:#fff}
+  .btn-outline{border:2px solid var(--green);color:var(--green)}
+  .btn-sm{min-height:44px;padding:0 22px;font-size:16px;border-radius:12px}
+
+  /* Hero */
+  .hero{position:relative;overflow:hidden}
+  .hero .wrap{padding-top:56px;padding-bottom:48px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+  .deco{position:absolute;top:28px}
+  .deco-left{left:8px} .deco-right{right:8px}
+  .kicker{font-size:1.75rem;font-weight:800;text-transform:uppercase;color:var(--red);text-wrap:balance}
+  h1{margin:8px 0 0;font-family:'League Gothic','Roboto Condensed',sans-serif;font-weight:400;font-size:9rem;line-height:.88;text-transform:uppercase;color:var(--green);text-wrap:balance}
+  .script{font-family:'Great Vibes',cursive;font-size:5.5rem;line-height:1;color:var(--green-dark);margin-top:-4px}
+  .banner{margin-top:22px;background:var(--sage);border-radius:16px;padding:14px 28px;font-size:2rem;font-weight:800;line-height:1.2;text-wrap:balance}
+  .btn-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:28px}
+
+  /* Sections */
+  section.block .wrap{padding-top:64px;padding-bottom:64px;display:flex;flex-direction:column;align-items:center;gap:24px}
+  .alt{background:var(--cream-dark)}
+  .section-title{margin:0;font-family:'League Gothic','Roboto Condensed',sans-serif;font-weight:400;font-size:4rem;line-height:1;text-transform:uppercase;color:var(--green);text-align:center}
+  .center{text-align:center}
+
+  /* Prices */
+  .price-head{margin:0;font-size:2.25rem;font-weight:800;line-height:1.15;text-transform:uppercase;color:var(--red);text-align:center;text-wrap:balance}
+  .price-sub{font-size:1.25rem;font-weight:700;text-align:center;margin-top:6px}
+  .cards{width:100%;display:flex;flex-wrap:wrap;gap:24px}
+  .price-card{flex:1 1 260px;background:var(--green);color:#fff;border-radius:22px;padding:18px 24px 22px}
+  .price-card .size{font-size:2rem;font-weight:800;text-align:center;padding-bottom:6px;border-bottom:2px solid #fff;margin-bottom:10px}
+  .price-card .opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;text-align:center}
+  .price-card .label{display:block;font-size:15px;font-weight:800;letter-spacing:.04em}
+  .price-card .amt{display:block;font-size:2.6rem;font-weight:800;line-height:1}
+
+  /* Order */
+  .order-intro p{margin:0}
+  .order-intro .lead{font-size:1.25rem;font-weight:700;line-height:1.45}
+  .order-intro .fine{font-size:15px;font-weight:700;margin-top:6px}
+  .form-box{width:100%;background:#fff;border-radius:18px;padding:8px;min-height:600px}
+
+  /* Pickup */
+  .day{flex:1 1 280px;background:var(--sage);border-radius:22px;padding:26px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px}
+  .day .dow{font-size:18px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--red)}
+  .day .date{font-family:'League Gothic','Roboto Condensed',sans-serif;font-size:4rem;line-height:1}
+  .day .time{font-size:18px;font-weight:700}
+  .place{font-size:1.5rem;font-weight:800}
+
+  /* Thank you */
+  .thanks{background:var(--green);color:#fff}
+  .thanks .wrap{padding-top:64px;padding-bottom:64px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px}
+  .thanks .script{color:#fff;font-size:3.5rem;line-height:1.1;margin:0}
+  .thanks p{margin:0;font-size:1.25rem;line-height:1.5;max-width:620px;font-weight:600}
+  .thanks .btn{background:var(--cream);color:var(--green);margin-top:14px}
+
+  /* Questions + site footer */
+  .questions .wrap{padding-top:28px;padding-bottom:28px;text-align:center;font-size:17px;font-weight:700}
+  .site-footer{background:var(--royal-dark);color:rgba(255,255,255,0.6);text-align:center;padding:1.25rem 2rem;font-size:.8rem;font-family:'Open Sans',sans-serif}
+  .site-footer p{margin:0}
+  .site-footer strong{color:var(--gold)}
+
+  /* Phones */
+  @media (max-width:760px){
+    .deco{display:none}
+    .kicker{font-size:1.25rem}
+    h1{font-size:5.25rem}
+    .script{font-size:3.75rem}
+    .banner{font-size:1.4rem;padding:12px 18px}
+    .price-head{font-size:1.6rem}
+    .section-title{font-size:3rem}
+    .price-card .amt{font-size:2.2rem}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/logo.png" alt="Bradwell Band Booster Club" />
+    <div class="nav-logo-text">Bradwell Band<br>Booster Club</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/events">Events</a></li>
+    <li><a href="/spiritwear">Spirit Wear</a></li>
+    <li><a href="/donate">Donate</a></li>
+    <li><a href="/sponsors">Sponsors</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="https://www.zeffy.com/en-US/ticketing/please-pay-your-2026-2027-band-dues" target="_blank">Pay Band Dues</a></li>
+    <li class="dropdown">
+      <a href="#">Social Media ▾</a>
+      <div class="dropdown-menu">
+        <a href="https://www.facebook.com/groups/bimtbboosters" target="_blank">📘 Booster FB Page</a>
+        <a href="https://www.instagram.com/bibandboosters" target="_blank">📸 Booster Instagram</a>
+        <a href="https://www.instagram.com/bi.tigerbands" target="_blank">📸 Band Instagram</a>
+        <a href="https://www.tiktok.com/@bradwell_institute_band" target="_blank">🎵 Band TikTok</a>
+      </div>
+    </li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/">Home</a>
+  <a href="/about">About</a>
+  <a href="/events">Events</a>
+  <a href="/spiritwear">Spirit Wear</a>
+  <a href="/donate">Donate</a>
+  <a href="/sponsors">Sponsors</a>
+  <a href="/contact">Contact</a>
+  <a href="https://www.zeffy.com/en-US/ticketing/please-pay-your-2026-2027-band-dues" target="_blank">Pay Band Dues</a>
+  <a href="https://www.facebook.com/groups/bimtbboosters" target="_blank">📘 Booster FB Page</a>
+  <a href="https://www.instagram.com/bibandboosters" target="_blank">📸 Booster Instagram</a>
+  <a href="https://www.instagram.com/bi.tigerbands" target="_blank">📸 Band Instagram</a>
+  <a href="https://www.tiktok.com/@bradwell_institute_band" target="_blank">🎵 Band TikTok</a>
+</div>
+
+<main>
+  <section class="hero">
+    <svg class="deco deco-left" width="120" height="260" viewBox="0 0 120 260" fill="none" stroke="#1F7A1F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M40 10 l5 12 l13 1 l-10 8 l4 13 l-12 -7 l-12 7 l4 -13 l-10 -8 l13 -1 z"/>
+      <path d="M40 50 C60 54 64 60 30 64 C-4 68 72 74 78 82 C84 90 4 92 8 102 C12 112 92 112 96 124 C100 136 -2 136 4 148 C10 160 110 158 114 172 C118 186 -6 186 0 200 L112 200"/>
+      <path d="M38 200 V230 H46 V200"/>
+    </svg>
+    <svg class="deco deco-right" width="120" height="260" viewBox="0 0 120 260" fill="none" stroke="#1F7A1F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M40 10 l5 12 l13 1 l-10 8 l4 13 l-12 -7 l-12 7 l4 -13 l-10 -8 l13 -1 z"/>
+      <path d="M40 50 C60 54 64 60 30 64 C-4 68 72 74 78 82 C84 90 4 92 8 102 C12 112 92 112 96 124 C100 136 -2 136 4 148 C10 160 110 158 114 172 C118 186 -6 186 0 200 L112 200"/>
+      <path d="M38 200 V230 H46 V200"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="kicker">Support the Bradwell Institute Band</div>
+      <h1>Christmas Tree</h1>
+      <div class="script">Fundraiser</div>
+      <div class="banner">Every tree helps get our band students to Orlando!</div>
+      <div class="btn-row">
+        <a class="btn btn-solid" href="#order">Pre-order your tree</a>
+        <a class="btn btn-outline" href="#pickup">Pickup info</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div>
+        <h2 class="price-head">Fresh-cut Leyland Cypress · $12/foot</h2>
+        <div class="price-sub">Locally sourced from Tom’s Trees</div>
+      </div>
+      <div class="cards">
+        <div class="price-card">
+          <div class="size">5 FT</div>
+          <div class="opts">
+            <div><span class="label">TREE ONLY</span><span class="amt">$60</span></div>
+            <div><span class="label">WITH STAND</span><span class="amt">$80</span></div>
+          </div>
+        </div>
+        <div class="price-card">
+          <div class="size">6 FT</div>
+          <div class="opts">
+            <div><span class="label">TREE ONLY</span><span class="amt">$72</span></div>
+            <div><span class="label">WITH STAND</span><span class="amt">$92</span></div>
+          </div>
+        </div>
+        <div class="price-card">
+          <div class="size">7 FT</div>
+          <div class="opts">
+            <div><span class="label">TREE ONLY</span><span class="amt">$84</span></div>
+            <div><span class="label">WITH STAND</span><span class="amt">$109</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt" id="order">
+    <div class="wrap">
+      <div class="order-intro center">
+        <h2 class="section-title">Pre-order your tree</h2>
+        <p class="lead">Pre-orders are open to all community members.</p>
+        <p class="fine">All orders are final sale.</p>
+      </div>
+
+      <div class="form-box">
+        <!-- Zeffy embed: Bradwell Band Christmas Tree Shop -->
+        <div>
+          <div data-zeffy-embed data-form-url="/embed/ticketing/bradwell-band-christmas-tree-shop"></div>
+          <div data-zeffy-embed-fallback style="display:none;">
+            <div style="position:relative;overflow:hidden;height:450px;width:100%;padding-top:450px;"><iframe title='Donation form powered by Zeffy' style='position: absolute; border: 0; top:0;left:0;bottom:0;right:0;width:100%;height:100%' data-zeffy-embed-src='https://www.zeffy.com/embed/ticketing/bradwell-band-christmas-tree-shop' allowpaymentrequest allowTransparency="true"></iframe></div>
+          </div>
+          <script
+            src="https://www.zeffy.com/embed/v2/zeffy-embed.js"
+            onerror="document.querySelectorAll('[data-zeffy-embed-fallback]').forEach(function(el){el.style.display='block';el.querySelectorAll('iframe[data-zeffy-embed-src]').forEach(function(f){f.src=f.getAttribute('data-zeffy-embed-src');});});">
+          </script>
+        </div>
+        <!-- end Zeffy embed -->
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="pickup">
+    <div class="wrap">
+      <h2 class="section-title">Pickup</h2>
+      <div class="cards">
+        <div class="day">
+          <div class="dow">Wednesday</div>
+          <div class="date">11/25</div>
+          <div class="time">Afternoon</div>
+        </div>
+        <div class="day">
+          <div class="dow">Friday</div>
+          <div class="date">11/27</div>
+          <div class="time">Afternoon</div>
+        </div>
+      </div>
+      <div class="center">
+        <div class="place">Bradwell Institute, 100 Pafford St.</div>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Bradwell+Institute+100+Pafford+St+Hinesville+GA" target="_blank" rel="noopener">Get directions</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="thanks">
+    <div class="wrap">
+      <div class="script">Thank you, Tiger Fam</div>
+      <p>Every tree helps get our band students to Orlando. Share this page with friends and neighbors.</p>
+      <a class="btn" href="#order">Pre-order your tree</a>
+    </div>
+  </section>
+</main>
+
+<div class="questions">
+  <div class="wrap">Questions? <a href="mailto:BIBandBoosters@bradwellinstituteband.org">BIBandBoosters@bradwellinstituteband.org</a></div>
+</div>
+
+<footer class="site-footer">
+  <p>&copy; 2026 <strong>Bradwell Band Booster Club</strong> &nbsp;&middot;&nbsp; Supporting the Bradwell Institute Band &nbsp;&middot;&nbsp; Hinesville, GA</p>
+</footer>
+
+<script>
+  const btn = document.getElementById('hamburger');
+  const menu = document.getElementById('mobile-menu');
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('open');
+    menu.classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>
